@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 462067588875677373}
   - component: {fileID: 462067588875677374}
   - component: {fileID: 462067588875677375}
-  - component: {fileID: 1632743950669322496}
   m_Layer: 0
   m_Name: Time_Item
   m_TagString: Time_Item
@@ -110,17 +109,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5038be36324e5459d8103b086a1d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1632743950669322496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462067588875677369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c249f59a815ef94daaac95b65bbdfee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkPoints: []
-  playZone: {fileID: 0}
+  GameMngr_Script: {fileID: 0}
