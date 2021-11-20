@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &339809041 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6603279934742432242, guid: 8eaba84452598f642be4b873e2f11bf6, type: 3}
-  m_PrefabInstance: {fileID: 785991750}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &535018591
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,11 +151,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535018591}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5.27}
+  m_LocalPosition: {x: -2.46, y: 0, z: 2.48}
   m_LocalScale: {x: 5, y: 0.5, z: 5}
   m_Children: []
-  m_Father: {fileID: 585921182}
-  m_RootOrder: 1
+  m_Father: {fileID: 1831519372}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &535018593
 BoxCollider:
@@ -267,10 +262,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPoints:
-  - {fileID: 659886618}
-  - {fileID: 339809041}
-  - {fileID: 1673696903}
-  boxSize: {fileID: 721902566}
+  - {fileID: 4088257173318714348, guid: 8e256b699716208418932655f960d6b6, type: 3}
+  - {fileID: 6603279934742432242, guid: 8eaba84452598f642be4b873e2f11bf6, type: 3}
+  - {fileID: 462067588875677369, guid: 1859e87dcb6d8ff448e747db6ca86f0a, type: 3}
+  playZone: {fileID: 721902566}
 --- !u!4 &583123831
 Transform:
   m_ObjectHideFlags: 0
@@ -299,7 +294,7 @@ GameObject:
   - component: {fileID: 585921184}
   m_Layer: 0
   m_Name: Drone
-  m_TagString: GameController
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,13 +326,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 10.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1831519372}
   - {fileID: 963194228}
-  - {fileID: 535018592}
-  - {fileID: 1515101583}
-  - {fileID: 1587624059}
-  - {fileID: 1736094889}
-  - {fileID: 1090733548}
-  - {fileID: 1459801444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -353,9 +343,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209b99f54941da341a3f8b8c410a5d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkPoint: {fileID: 0}
+  checkPoint: {fileID: 1514316863}
+  playZone: {fileID: 721902566}
+  drone_OBJ: {fileID: 1831519371}
   speed: 300
-  turnSpeed: 200
+  turnSpeed: 100
 --- !u!64 &585921184
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -370,11 +362,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &659886618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4088257173318714348, guid: 8e256b699716208418932655f960d6b6, type: 3}
-  m_PrefabInstance: {fileID: 1850058811}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +508,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 127f0ee3d365f02499d7977f5cfb1bc3, type: 2}
+  - {fileID: 2100000, guid: 82ad41b592695db458b17c94f927a5fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -577,6 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec0bdb21eeb5b0408d08fc6e7254ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  min_zone_Size: 0
 --- !u!1001 &785991750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -725,7 +713,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 585921182}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -875,13 +863,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090733547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.55, y: 0, z: -2.75}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.01, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1669326606}
-  m_Father: {fileID: 585921182}
-  m_RootOrder: 5
+  m_Father: {fileID: 1831519372}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1090733549
 CapsuleCollider:
@@ -973,12 +961,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459801443}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.12, y: 0, z: -2.83}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -2.58, y: 0, z: 4.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 585921182}
-  m_RootOrder: 6
+  m_Father: {fileID: 1831519372}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!136 &1459801445
 CapsuleCollider:
@@ -1103,13 +1091,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515101582}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.51, y: 0, z: -2.76}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.049999952, y: 0, z: 4.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1628174011}
-  m_Father: {fileID: 585921182}
-  m_RootOrder: 2
+  m_Father: {fileID: 1831519372}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1515101584
 CapsuleCollider:
@@ -1201,13 +1189,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587624058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.46, y: 0, z: -7.75}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1030850215}
-  m_Father: {fileID: 585921182}
-  m_RootOrder: 3
+  m_Father: {fileID: 1831519372}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1587624060
 CapsuleCollider:
@@ -1557,11 +1545,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669326605}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1673696903 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 462067588875677369, guid: 1859e87dcb6d8ff448e747db6ca86f0a, type: 3}
-  m_PrefabInstance: {fileID: 1600254561}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1727315087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,12 +1680,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736094888}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.46, y: 0, z: -7.75}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.92, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1727315088}
-  m_Father: {fileID: 585921182}
+  m_Father: {fileID: 1831519372}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1736094890
@@ -1769,6 +1752,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736094888}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1831519371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831519372}
+  m_Layer: 0
+  m_Name: Drone_OBJ
+  m_TagString: Drone_OBJ
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1831519372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831519371}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.46, y: 0, z: -7.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 535018592}
+  - {fileID: 1515101583}
+  - {fileID: 1587624059}
+  - {fileID: 1090733548}
+  - {fileID: 1736094889}
+  - {fileID: 1459801444}
+  m_Father: {fileID: 585921182}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1850058811
 PrefabInstance:
   m_ObjectHideFlags: 0

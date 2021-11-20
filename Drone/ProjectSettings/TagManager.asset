@@ -7,6 +7,7 @@ TagManager:
   - Point_Item
   - Time_Item
   - Speed_Item
+  - Drone_OBJ
   layers:
   - Default
   - TransparentFX
