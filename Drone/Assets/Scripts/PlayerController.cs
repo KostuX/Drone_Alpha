@@ -6,9 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody drone_RB;
     public GameObject checkPoint;
+    private GameMngr gameMngr_Script;
 
     public GameObject playZone;
     public GameObject drone_OBJ;
+
     public float speed = 500f;
     public float turnSpeed = 100;
 
@@ -17,10 +19,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameMngr_Script = GameObject.Find("GameMngr").GetComponent<GameMngr>();
         drone_RB = GetComponent<Rigidbody>();
         drone_OBJ = GameObject.Find("Drone_OBJ");
 
-        Physics.gravity *= 0;//gravityModifier; 
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     public void checkedInput()
     {
+        if(gameMngr_Script.alive){
 
         // forward / backward
         if (Input.GetKey(KeyCode.W))
@@ -63,6 +66,7 @@ public class PlayerController : MonoBehaviour
         { transform.Rotate(Vector3.up * Time.deltaTime * (-turnSpeed / 2)); }
 
     }
+    }
 
     private void OnTriggerExit(Collider other)
     {
@@ -76,29 +80,35 @@ public class PlayerController : MonoBehaviour
         {
             if (gameObject.transform.position.x > half_Of_playZone)
             {
-                transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x - 10, transform.position.y, transform.position.z);
+                gameMngr_Script.deduct_Health();
             }
             if (gameObject.transform.position.x < -half_Of_playZone)
             {
-                transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x + 10, transform.position.y, transform.position.z);
+               gameMngr_Script.deduct_Health();
             }
 
             if (gameObject.transform.position.y > half_Of_playZone)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y - 10, transform.position.z);
+                gameMngr_Script.deduct_Health();
             }
             if (gameObject.transform.position.y < -half_Of_playZone)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
+                gameMngr_Script.deduct_Health();
             }
 
             if (gameObject.transform.position.z > half_Of_playZone)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+                gameMngr_Script.deduct_Health();
             }
             if (gameObject.transform.position.z < -half_Of_playZone)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 10);
+                gameMngr_Script.deduct_Health();
             }
 
 

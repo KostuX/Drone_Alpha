@@ -2,27 +2,40 @@ using UnityEngine;
 
 public class PlayZone : MonoBehaviour
 {
-private SpawnManager spawnManager_Script;
+    public float min_zone_Size = 30f;
+    float deduct = 0.1f;
+    int zone_Size = 1230;
+    private SpawnManager spawnManager_Script;
 
-    public float min_zone_Size;
+
     // Start is called before the first frame update
     void Start()
     {
-         min_zone_Size = 30f;
+        min_zone_Size = 30f;
+        transform.localScale = new Vector3(zone_Size, zone_Size, zone_Size);
+
         spawnManager_Script = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        InvokeRepeating("playZone_scaler_FN", 1, 0.01f);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if(transform.localScale.x > min_zone_Size)
+
+    }
+
+    void playZone_scaler_FN()
+    {
+
+        if (transform.localScale.x > min_zone_Size)
         {
-         transform.localScale = new Vector3(
-                                            transform.localScale.x /1.001f,
-                                            transform.localScale.x /1.001f,
-                                            transform.localScale.x /1.001f
-                                             );
+            transform.localScale = new Vector3(
+                                               transform.localScale.x - deduct,
+                                               transform.localScale.x - deduct,
+                                               transform.localScale.x - deduct
+                                                );
         }
-        else{ spawnManager_Script.CancelInvoke();}
+        else { spawnManager_Script.CancelInvoke(); }
+
     }
 }
