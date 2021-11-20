@@ -2,34 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DetectCollision : MonoBehaviour
 {
+ bool   isColliding;
+public GameMngr GameMngr_Script;
+
     // Start is called before the first frame update
     void Start()
     {
-
+  GameMngr_Script = GameObject.Find("GameMngr").GetComponent<GameMngr>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+isColliding = false;
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-                            // destroy object when collected
+        //-----------------------------------------------------------------------------------------------
+        if(isColliding) return;
+        isColliding = true;
+        //https://answers.unity.com/questions/738991/ontriggerenter-being-called-multiple-times-in-succ.html
+        
+        
         Destroy(gameObject);
 
         if (gameObject.CompareTag("Point_Item"))
-           { Debug.Log("Points_Item");}
+        {GameMngr_Script.score+=5; }
 
         if (gameObject.CompareTag("Time_Item"))
-           { Debug.Log("Time_Item");}
+        {GameMngr_Script.score+=10; }
 
-       if (gameObject.CompareTag("Speed_Item"))
-           { Debug.Log("Speed_Item");}
+        if (gameObject.CompareTag("Speed_Item"))
+        {GameMngr_Script.score+=15; }
     }
 
 

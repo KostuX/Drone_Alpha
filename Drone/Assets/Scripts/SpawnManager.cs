@@ -4,7 +4,7 @@ public class SpawnManager : MonoBehaviour
 {
 
     public GameObject[] checkPoints;
-    public GameObject playZone;
+    public static GameObject playZone;
 
     float half_Of_playZone;
 
