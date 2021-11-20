@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -500,6 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameMngr_Script: {fileID: 0}
+  playZone: {fileID: 0}
 --- !u!1 &583123829
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +534,7 @@ MonoBehaviour:
   - {fileID: 4088257173318714348, guid: 8e256b699716208418932655f960d6b6, type: 3}
   - {fileID: 6603279934742432242, guid: 8eaba84452598f642be4b873e2f11bf6, type: 3}
   - {fileID: 462067588875677369, guid: 1859e87dcb6d8ff448e747db6ca86f0a, type: 3}
+  playZone: {fileID: 721902566}
 --- !u!4 &583123831
 Transform:
   m_ObjectHideFlags: 0
@@ -915,6 +917,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6603279934742432268, guid: 8eaba84452598f642be4b873e2f11bf6, type: 3}
+      propertyPath: playZone
+      value: 
+      objectReference: {fileID: 721902566}
+    - target: {fileID: 6603279934742432268, guid: 8eaba84452598f642be4b873e2f11bf6, type: 3}
+      propertyPath: GameMngr_Script
+      value: 
+      objectReference: {fileID: 1265971666}
     - target: {fileID: 6603279934742432269, guid: 8eaba84452598f642be4b873e2f11bf6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2243,6 +2253,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 462067588875677375, guid: 1859e87dcb6d8ff448e747db6ca86f0a, type: 3}
+      propertyPath: playZone
+      value: 
+      objectReference: {fileID: 721902566}
+    - target: {fileID: 462067588875677375, guid: 1859e87dcb6d8ff448e747db6ca86f0a, type: 3}
+      propertyPath: GameMngr_Script
+      value: 
+      objectReference: {fileID: 1265971666}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1859e87dcb6d8ff448e747db6ca86f0a, type: 3}
 --- !u!4 &1600254562 stripped
@@ -2900,9 +2918,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1514316864}
     m_Modifications:
     - target: {fileID: 4088257173318714346, guid: 8e256b699716208418932655f960d6b6, type: 3}
+      propertyPath: playZone
+      value: 
+      objectReference: {fileID: 721902566}
+    - target: {fileID: 4088257173318714346, guid: 8e256b699716208418932655f960d6b6, type: 3}
       propertyPath: scrore_Text
       value: 
       objectReference: {fileID: 1918466991}
+    - target: {fileID: 4088257173318714346, guid: 8e256b699716208418932655f960d6b6, type: 3}
+      propertyPath: GameMngr_Script
+      value: 
+      objectReference: {fileID: 1265971666}
     - target: {fileID: 4088257173318714348, guid: 8e256b699716208418932655f960d6b6, type: 3}
       propertyPath: m_Name
       value: Speed_Item

@@ -7,10 +7,14 @@ public class DetectCollision : MonoBehaviour
 {
  bool   isColliding;
 public GameMngr GameMngr_Script;
+    float half_Of_playZone;
+       public GameObject playZone;
 
     // Start is called before the first frame update
     void Start()
     {
+       
+          playZone = GameObject.Find("PlayZone");
   GameMngr_Script = GameObject.Find("GameMngr").GetComponent<GameMngr>();
     }
 
@@ -18,6 +22,8 @@ public GameMngr GameMngr_Script;
     void Update()
     {
 isColliding = false;
+    half_Of_playZone = playZone.transform.localScale.x / 2;
+destroy_FN();
 
     }
 
@@ -40,7 +46,24 @@ isColliding = false;
         if (gameObject.CompareTag("Speed_Item"))
         {GameMngr_Script.score+=15; }
     }
+    void destroy_FN()
+    {
 
+        if (gameObject.CompareTag("Point_Item") || gameObject.CompareTag("Time_Item") || gameObject.CompareTag("Speed_Item"))
+        {
+
+            if (gameObject.transform.position.x > half_Of_playZone) { Destroy(gameObject); }
+            if (gameObject.transform.position.x < -half_Of_playZone) { Destroy(gameObject); }
+
+            if (gameObject.transform.position.y > half_Of_playZone) { Destroy(gameObject); }
+            if (gameObject.transform.position.y < -half_Of_playZone) { Destroy(gameObject); }
+
+            if (gameObject.transform.position.z > half_Of_playZone) { Destroy(gameObject); }
+            if (gameObject.transform.position.z < -half_Of_playZone) { Destroy(gameObject); }
+
+        }
+
+    }
 
 
 }

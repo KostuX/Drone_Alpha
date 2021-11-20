@@ -4,9 +4,9 @@ public class SpawnManager : MonoBehaviour
 {
 
     public GameObject[] checkPoints;
-    public static GameObject playZone;
+    public GameObject playZone;
 
-    float half_Of_playZone;
+
 
 
 
@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playZone = GameObject.Find("PlayZone");
+      
         InvokeRepeating("randomSpawn", 2, 1f);
 
 
@@ -24,10 +24,9 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        half_Of_playZone = playZone.transform.localScale.x / 2;
+    
 
-        destroy_FN();
-
+        
 
     }
 
@@ -45,24 +44,7 @@ public class SpawnManager : MonoBehaviour
 
 
 
-    void destroy_FN()
-    {
 
-        if (gameObject.CompareTag("Point_Item") || gameObject.CompareTag("Time_Item") || gameObject.CompareTag("Speed_Item"))
-        {
-
-            if (gameObject.transform.position.x > half_Of_playZone) { Destroy(gameObject); }
-            if (gameObject.transform.position.x < -half_Of_playZone) { Destroy(gameObject); }
-
-            if (gameObject.transform.position.y > half_Of_playZone) { Destroy(gameObject); }
-            if (gameObject.transform.position.y < -half_Of_playZone) { Destroy(gameObject); }
-
-            if (gameObject.transform.position.z > half_Of_playZone) { Destroy(gameObject); }
-            if (gameObject.transform.position.z < -half_Of_playZone) { Destroy(gameObject); }
-
-        }
-
-    }
 
 
 
