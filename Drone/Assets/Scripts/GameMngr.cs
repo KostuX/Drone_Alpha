@@ -38,28 +38,42 @@ public class GameMngr : MonoBehaviour
 
     public void deduct_Health()
     {
-        if (health > 5){health -= 5;}
+        if (health > 5) { health -= 5; }
         else
-            {
-                health = 0;
-                gameOver();
-                alive = false;
-            }
+        {
+            health = 0;
+            gameOver();
+            alive = false;
+        }
     }
 
-    public void gameOver() { 
-        gameOver_Text.gameObject.SetActive(true); 
+    public void gameOver()
+    {
+        gameOver_Text.gameObject.SetActive(true);
         restart_Button.gameObject.SetActive(true);
-        
-        }
 
-    public void restart_Game(){
+    }
+
+    public void restart_Game()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+    }
 
 
-        public void link_GitHub()
-        {
-            Application.OpenURL("https://github.com/KostuX/Drone_Alpha");
-        }
+    public void link_GitHub()
+    {
+        Application.OpenURL("https://github.com/KostuX/Drone_Alpha");
+    }
+    public void link_WebGL()
+    {
+        Application.OpenURL("http://Kostas.fun");
+    }
+    
+       public void cube_Scene(){
+        SceneManager.LoadScene(0);
+    }
+    public void freeRun_Scene(){
+        SceneManager.LoadScene(1);
+    }
+
 }

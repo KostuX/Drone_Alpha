@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody drone_RB;
-    public GameObject checkPoint;
+    //public GameObject checkPoint;
     private GameMngr gameMngr_Script;
 
     public GameObject playZone;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     public void checkedInput()
     {
-        if(gameMngr_Script.alive){
+        if(true){
 
         // forward / backward
         if (Input.GetKey(KeyCode.W))
