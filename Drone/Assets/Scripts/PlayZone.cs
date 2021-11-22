@@ -11,6 +11,7 @@ public class PlayZone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         min_zone_Size = 30f;
         transform.localScale = new Vector3(zone_Size, zone_Size, zone_Size);
 
