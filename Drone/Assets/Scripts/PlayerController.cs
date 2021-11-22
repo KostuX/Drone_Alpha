@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody drone_RB;
-    //public GameObject checkPoint;
     private GameMngr gameMngr_Script;
 
     public GameObject playZone;
@@ -13,7 +13,12 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 500f;
     public float turnSpeed = 100;
+    public static bool isPaused;
+    public GameObject inGameMenu;
 
+    float current_Time;
+    float countDown_Time = 3;
+    public TextMeshProUGUI countDown_Text;
 
 
     // Start is called before the first frame update
@@ -22,7 +27,7 @@ public class PlayerController : MonoBehaviour
         gameMngr_Script = GameObject.Find("GameMngr").GetComponent<GameMngr>();
         drone_RB = GetComponent<Rigidbody>();
         drone_OBJ = GameObject.Find("Drone_OBJ");
-
+        current_Time = countDown_Time;
     }
 
     // Update is called once per frame
@@ -30,42 +35,58 @@ public class PlayerController : MonoBehaviour
     {
         checkedInput();
         know_Your_Limits();
+
+        //Time.timeScale = 0;
+        while (true)
+        {
+            current_Time -= 1 * Time.deltaTime;
+            countDown_Text.text = current_Time.ToString("0");
+        }
+
     }
 
 
 
     public void checkedInput()
     {
-        if(true){
+        if (true)
+        {                                                                       /// if alive or not paused
 
-        // forward / backward
-        if (Input.GetKey(KeyCode.W))
-        { transform.Translate(Vector3.forward * Time.deltaTime * speed); }
-        //  {drone_RB.AddForce(Vector3.forward * 10, ForceMode.Impulse);}
+            // forward / backward
+            if (Input.GetKey(KeyCode.W))
+            { transform.Translate(Vector3.forward * Time.deltaTime * speed); }
+            //  {drone_RB.AddForce(Vector3.forward * 10, ForceMode.Impulse);}
 
 
-        if (Input.GetKey(KeyCode.S))
-        { transform.Translate(Vector3.forward * Time.deltaTime * (-speed)); }
+            if (Input.GetKey(KeyCode.S))
+            { transform.Translate(Vector3.forward * Time.deltaTime * (-speed)); }
 
-        //left / right
-        if (Input.GetKey(KeyCode.D))
-        { transform.Translate(Vector3.right * Time.deltaTime * turnSpeed); }
-        if (Input.GetKey(KeyCode.A))
-        { transform.Translate(Vector3.right * Time.deltaTime * (-turnSpeed)); }
+            //left / right
+            if (Input.GetKey(KeyCode.D))
+            { transform.Translate(Vector3.right * Time.deltaTime * turnSpeed); }
+            if (Input.GetKey(KeyCode.A))
+            { transform.Translate(Vector3.right * Time.deltaTime * (-turnSpeed)); }
 
-        // up / down
-        if (Input.GetKey(KeyCode.UpArrow))
-        { transform.Translate(Vector3.up * Time.deltaTime * turnSpeed); }
-        if (Input.GetKey(KeyCode.DownArrow))
-        { transform.Translate(Vector3.up * Time.deltaTime * (-turnSpeed)); }
+            // up / down
+            if (Input.GetKey(KeyCode.UpArrow))
+            { transform.Translate(Vector3.up * Time.deltaTime * turnSpeed); }
+            if (Input.GetKey(KeyCode.DownArrow))
+            { transform.Translate(Vector3.up * Time.deltaTime * (-turnSpeed)); }
 
-        //left / right
-        if (Input.GetKey(KeyCode.RightArrow))
-        { transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed / 2); }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        { transform.Rotate(Vector3.up * Time.deltaTime * (-turnSpeed / 2)); }
+            //left / right
+            if (Input.GetKey(KeyCode.RightArrow))
+            { transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed / 2); }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            { transform.Rotate(Vector3.up * Time.deltaTime * (-turnSpeed / 2)); }
+        }
 
-    }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused) { resume(); }
+            else { pause(); }
+        }
+
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -86,7 +107,7 @@ public class PlayerController : MonoBehaviour
             if (gameObject.transform.position.x < -half_Of_playZone)
             {
                 transform.position = new Vector3(transform.position.x + 10, transform.position.y, transform.position.z);
-               gameMngr_Script.deduct_Health();
+                gameMngr_Script.deduct_Health();
             }
 
             if (gameObject.transform.position.y > half_Of_playZone)
@@ -115,4 +136,20 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    public void resume()
+    {
+        inGameMenu.SetActive(false);
+        Time.timeScale = 1;
+        isPaused = false;
+    }
+    public void pause()
+    {
+        inGameMenu.SetActive(true);
+        Time.timeScale = 0;
+        isPaused = true;
+    }
+
+    public void load_Main_Menu_Scene() { Menu.start("MainMenu"); }
+    public void quit() { }
 }

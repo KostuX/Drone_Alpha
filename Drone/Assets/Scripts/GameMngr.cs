@@ -11,6 +11,8 @@ public class GameMngr : MonoBehaviour
     public Button restart_Button, gitHub_Button;
     public bool alive;
 
+
+
     public int score, time, health;
     public static GameObject playZone;
     // Start is called before the first frame update
@@ -21,8 +23,8 @@ public class GameMngr : MonoBehaviour
         time = 0;
         health = 100;
         alive = true;
-
         score_Text.text = "Score: " + score;
+       
         //  time_Text.text = "Time: " + time;
     }
 
@@ -32,6 +34,7 @@ public class GameMngr : MonoBehaviour
         time_Text.text = "Time: " + (((int)playZone.transform.localScale.x / 10) - 3);
         score_Text.text = "Score: " + score;
         health_Text.text = "Health: " + health;
+
 
 
     }
@@ -75,5 +78,6 @@ public class GameMngr : MonoBehaviour
     public void freeRun_Scene(){
         SceneManager.LoadScene(1);
     }
+
 
 }
