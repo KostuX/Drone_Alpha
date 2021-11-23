@@ -18,12 +18,4 @@ Vector3 cameraOffSet =  new Vector3(0 ,5, -15);
     void LateUpdate()
     {
 
-        //TODO Camere moved to Drone OBJ to solve rotation problem
-
-
-
-
-      // transform.position =  drone.transform.position + cameraOffSet;
-      //   float  horisontalInput = Input.GetAxis("Horizontal");
-      // transform.Rotate(Vector3.up * Time.deltaTime * 100 * horisontalInput); 
 }}

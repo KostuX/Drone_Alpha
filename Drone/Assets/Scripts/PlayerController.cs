@@ -24,8 +24,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+
         isPaused = false;
         gameMngr_Script = GameObject.Find("GameMngr").GetComponent<GameMngr>();
         drone_RB = GetComponent<Rigidbody>();
@@ -39,16 +38,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-
-
         if (GameMngr.alive)
         {
             checkedInput();
             know_Your_Limits();
              isTimeTo_Play();
         }
-
-
 
     }
 
@@ -93,10 +88,7 @@ public class PlayerController : MonoBehaviour
              else { pause(); }
         }
 
-
     }
-
-
 
     void know_Your_Limits()
     {
@@ -136,7 +128,6 @@ public class PlayerController : MonoBehaviour
                 gameMngr_Script.deduct_Health();
             }
 
-
         }
 
     }
@@ -165,7 +156,6 @@ public class PlayerController : MonoBehaviour
         if (current_Time > 3){ countDown_Text.text = "Ready?!"; }
 
         current_Time -= 1 * Time.deltaTime;
-
 
         return current_Time < 0 ? true : false;
     }

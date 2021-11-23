@@ -6,29 +6,17 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] checkPoints;
     public GameObject playZone;
 
-
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
       
         InvokeRepeating("randomSpawn", 2, 1f);
 
-
         for (int i = 0; i < 10; i++) { randomSpawn(); }
     }
 
     // Update is called once per frame
-    void Update()
-    {
-    
-
-        
-
-    }
+    void Update(){}
 
     void randomSpawn()
     {

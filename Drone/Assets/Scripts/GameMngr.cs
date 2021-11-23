@@ -12,8 +12,6 @@ public class GameMngr : MonoBehaviour
     public GameObject game_Over;
     public static bool alive;
 
-
-
     public int score, time, health;
     public static GameObject playZone;
     // Start is called before the first frame update
@@ -27,7 +25,6 @@ public class GameMngr : MonoBehaviour
         alive = true;
         score_Text.text = "Score: " + score;
 
-        //  time_Text.text = "Time: " + time;
     }
 
     // Update is called once per frame
@@ -61,8 +58,5 @@ public class GameMngr : MonoBehaviour
     public void MainMenu_Scene(){SceneManager.LoadScene(0);}
     public void cube_Scene(){SceneManager.LoadScene(1);}
     public void freeRun_Scene(){SceneManager.LoadScene(2);}
-
-
-
 
 }
