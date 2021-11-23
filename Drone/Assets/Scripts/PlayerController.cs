@@ -24,11 +24,14 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        
         isPaused = false;
         gameMngr_Script = GameObject.Find("GameMngr").GetComponent<GameMngr>();
         drone_RB = GetComponent<Rigidbody>();
         drone_OBJ = GameObject.Find("Drone_OBJ");
         current_Time = (int)countDown_Time;
+        isTimeTo_Play();
        
     }
 
@@ -36,14 +39,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (isTimeTo_Play())
+
+
+        if (GameMngr.alive)
         {
             checkedInput();
             know_Your_Limits();
+             isTimeTo_Play();
         }
-
-
-
 
 
 
@@ -86,17 +89,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused) { resume(); }
-            else { pause(); }
+            if (isPaused) { resume();}
+             else { pause(); }
         }
 
 
     }
 
-    private void OnTriggerExit(Collider other)
-    {
 
-    }
 
     void know_Your_Limits()
     {
@@ -154,8 +154,8 @@ public class PlayerController : MonoBehaviour
         isPaused = true;
     }
 
-    public void load_Main_Menu_Scene() { Menu.start("MainMenu"); }
-    public void quit() { }
+    public void load_Main_Menu_Scene() {  Menu.start("MainMenu"); }
+    public void quit() { }                                                /// quit game
 
     public bool isTimeTo_Play()
     {
@@ -163,12 +163,6 @@ public class PlayerController : MonoBehaviour
         if (current_Time < 0 && current_Time > -3) { countDown_Text.text = "GO!!!"; }
         if (current_Time < 4 && current_Time > 0) { countDown_Text.text = current_Time.ToString("0"); }
         if (current_Time > 3){ countDown_Text.text = "Ready?!"; }
-
-
-
-
-
-
 
         current_Time -= 1 * Time.deltaTime;
 

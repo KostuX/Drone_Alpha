@@ -20,7 +20,7 @@ public class DetectCollision : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         isColliding = false;
         half_Of_playZone = playZone.transform.localScale.x / 2;
         destroy_FN();
