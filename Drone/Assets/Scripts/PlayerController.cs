@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     public void checkedInput()
     {
-        if (gameMngr_Script.isTimeTo_Play())
+        if (gameMngr_Script.timeToPlay && !gameMngr_Script.survived)
         {                                                                       /// if alive or not paused
 
             // forward / backward

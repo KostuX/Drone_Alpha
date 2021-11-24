@@ -54,7 +54,8 @@ public class Menu : MonoBehaviour
      Drone_Model.gameObject.SetActive(true);
         Cube_Description.gameObject.SetActive(false);
     }
-
+    public void link_GitHub() { Application.OpenURL("https://github.com/KostuX/Drone_Alpha"); }
+    public void link_WebGL() { Application.OpenURL("http://Kostas.fun"); }
 
 }
 
