@@ -7,10 +7,11 @@ using TMPro;
 public class Menu : MonoBehaviour
 {
     public GameObject Cube_Description;
-     public GameObject Drone_Model;
-     public TextMeshProUGUI Cube_Top_Score;
+    public GameObject Drone_Model;
+    public TextMeshProUGUI Cube_Top_Score;
+    public GameObject FreeRun_Description;
 
-     
+
 
 
     string scene = "MainMenu";
@@ -21,20 +22,21 @@ public class Menu : MonoBehaviour
     {
         GameMngr.alive = true;
         SceneManager.LoadScene(scene);
-   
+
     }
-    public static void start(string scene_temp) {Time.timeScale = 1f; SceneManager.LoadScene(scene_temp); }
+    public static void start(string scene_temp) { Time.timeScale = 1f; SceneManager.LoadScene(scene_temp); }
 
     public void cube_Scene()
     {
         scene = "Cube";
-
-        Cube_Description.gameObject.SetActive(true);
         Drone_Model.gameObject.SetActive(false);
+         FreeRun_Description.gameObject.SetActive(false);
+        Cube_Description.gameObject.SetActive(true);
+       
 
-         Cube_Top_Score.text = "Top score is: " + GameMngr.TopScore;
+        Cube_Top_Score.text = "Top score is: " + GameMngr.TopScore;
 
-        
+
 
     }
 
@@ -42,17 +44,19 @@ public class Menu : MonoBehaviour
     public void race_Scene()
     {
         scene = "MainMenu";
-      //  scene = "Race";
+        //  scene = "Race";
+         FreeRun_Description.gameObject.SetActive(false);
         Cube_Description.gameObject.SetActive(false);
         Drone_Model.gameObject.SetActive(true);
     }
 
     public void freeRun_Scene()
     {
-        scene = "MainMenu";
-     //   scene = "FreeRun";
-     Drone_Model.gameObject.SetActive(true);
+        // scene = "MainMenu";
+        scene = "FreeRun";
+        Drone_Model.gameObject.SetActive(false);
         Cube_Description.gameObject.SetActive(false);
+        FreeRun_Description.gameObject.SetActive(true);
     }
     public void link_GitHub() { Application.OpenURL("https://github.com/KostuX/Drone_Alpha"); }
     public void link_WebGL() { Application.OpenURL("http://Kostas.fun"); }

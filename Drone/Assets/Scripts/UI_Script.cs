@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
@@ -53,6 +54,9 @@ public class UI_Script : MonoBehaviour
     }
 
 
+    public void restart_Game() { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
+    public void load_Main_Menu_Scene() {  Menu.start("MainMenu"); }
 
+    
 }
 

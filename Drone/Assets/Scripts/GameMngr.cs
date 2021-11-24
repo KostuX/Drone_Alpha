@@ -9,12 +9,12 @@ using TMPro;
 public class GameMngr : MonoBehaviour
 {
 
-    public Button gitHub_Button;
+    //public Button gitHub_Button;
     public GameObject game_Over;
     public static GameObject playZone;
     public static bool alive;
     public int score, time, health;
-    public static int TopScore = 3;
+    public static int TopScore = 299;
     public bool timeToPlay = false;
 
     public bool survived = false;
@@ -64,8 +64,8 @@ public class GameMngr : MonoBehaviour
 
     public void gameOver() { game_Over.gameObject.SetActive(true); }
 
-    public void restart_Game() { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
 
+ 
 
     public void MainMenu_Scene() { SceneManager.LoadScene(0); }
     public void cube_Scene() { SceneManager.LoadScene(1); }

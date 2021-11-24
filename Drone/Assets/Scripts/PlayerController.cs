@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -143,8 +145,7 @@ public class PlayerController : MonoBehaviour
         isPaused = true;
     }
 
-    public void load_Main_Menu_Scene() {  Menu.start("MainMenu"); }
-    public void quit() { }                                                /// quit game
+                                           /// quit game
 
 
 }
