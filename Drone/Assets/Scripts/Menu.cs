@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Menu : MonoBehaviour
 {
     public GameObject Cube_Description;
      public GameObject Drone_Model;
+     public TextMeshProUGUI Cube_Top_Score;
+
+     
+
+
     string scene = "MainMenu";
 
 
@@ -15,7 +21,7 @@ public class Menu : MonoBehaviour
     {
         GameMngr.alive = true;
         SceneManager.LoadScene(scene);
-   //     Cube_Description = GameObject.Find("Cube_Description");
+   
     }
     public static void start(string scene_temp) {Time.timeScale = 1f; SceneManager.LoadScene(scene_temp); }
 
@@ -25,6 +31,10 @@ public class Menu : MonoBehaviour
 
         Cube_Description.gameObject.SetActive(true);
         Drone_Model.gameObject.SetActive(false);
+
+         Cube_Top_Score.text = "Top score is: " + GameMngr.TopScore;
+
+        
 
     }
 

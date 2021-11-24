@@ -16,9 +16,7 @@ public class PlayerController : MonoBehaviour
     public static bool isPaused;
     public GameObject inGameMenu;
 
-    float current_Time;
-    float countDown_Time = 4;
-    public TextMeshProUGUI countDown_Text;
+  
 
 
     // Start is called before the first frame update
@@ -29,8 +27,8 @@ public class PlayerController : MonoBehaviour
         gameMngr_Script = GameObject.Find("GameMngr").GetComponent<GameMngr>();
         drone_RB = GetComponent<Rigidbody>();
         drone_OBJ = GameObject.Find("Drone_OBJ");
-        current_Time = (int)countDown_Time;
-        isTimeTo_Play();
+       
+       
        
     }
 
@@ -42,7 +40,7 @@ public class PlayerController : MonoBehaviour
         {
             checkedInput();
             know_Your_Limits();
-             isTimeTo_Play();
+           
         }
 
     }
@@ -51,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     public void checkedInput()
     {
-        if (true)
+        if (gameMngr_Script.isTimeTo_Play())
         {                                                                       /// if alive or not paused
 
             // forward / backward
@@ -148,15 +146,5 @@ public class PlayerController : MonoBehaviour
     public void load_Main_Menu_Scene() {  Menu.start("MainMenu"); }
     public void quit() { }                                                /// quit game
 
-    public bool isTimeTo_Play()
-    {
-        if (current_Time < -1) { countDown_Text.text = ""; }          // destry obj instead
-        if (current_Time < 0 && current_Time > -3) { countDown_Text.text = "GO!!!"; }
-        if (current_Time < 4 && current_Time > 0) { countDown_Text.text = current_Time.ToString("0"); }
-        if (current_Time > 3){ countDown_Text.text = "Ready?!"; }
 
-        current_Time -= 1 * Time.deltaTime;
-
-        return current_Time < 0 ? true : false;
-    }
 }

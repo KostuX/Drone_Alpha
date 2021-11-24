@@ -28,7 +28,7 @@ public class PlayZone : MonoBehaviour
     void playZone_scaler_FN()
     {
 
-        if (transform.localScale.x > min_zone_Size)
+        if (transform.localScale.x > min_zone_Size && GameMngr.alive )
         {
             transform.localScale = new Vector3(
                                                transform.localScale.x - deduct,

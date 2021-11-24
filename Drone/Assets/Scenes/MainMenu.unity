@@ -596,6 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cube_Description: {fileID: 0}
   Drone_Model: {fileID: 0}
+  Cube_Top_Score: {fileID: 0}
 --- !u!1 &245824782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cube_Description: {fileID: 2134520054}
   Drone_Model: {fileID: 1280953823}
+  Cube_Top_Score: {fileID: 135266927}
 --- !u!1 &710416866
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,7 +2219,7 @@ BoxCollider:
   m_GameObject: {fileID: 1101979256}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2419,7 +2421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.654902}
+  m_Color: {r: 0.5896761, g: 0.8581793, b: 0.9528302, a: 0.75686276}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2537,7 +2539,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Menu
+  m_text: Main
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2669,7 +2671,7 @@ BoxCollider:
   m_GameObject: {fileID: 1378566895}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3107,7 +3109,7 @@ BoxCollider:
   m_GameObject: {fileID: 1625730984}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3350,7 +3352,7 @@ BoxCollider:
   m_GameObject: {fileID: 1799532435}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3780,7 +3782,6 @@ GameObject:
   - component: {fileID: 2134520055}
   - component: {fileID: 2134520058}
   - component: {fileID: 2134520057}
-  - component: {fileID: 2134520056}
   m_Layer: 5
   m_Name: Cube_Description
   m_TagString: Untagged
@@ -3810,20 +3811,6 @@ RectTransform:
   m_AnchoredPosition: {x: 57.36, y: -13.3}
   m_SizeDelta: {x: 415.2, y: 252.7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2134520056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134520054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b249cf0f0c29534ea38331c61a0a862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cube_Description: {fileID: 2134520054}
-  Drone_Model: {fileID: 0}
 --- !u!114 &2134520057
 MonoBehaviour:
   m_ObjectHideFlags: 0
